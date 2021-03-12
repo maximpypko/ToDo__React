@@ -56,7 +56,7 @@ function List({ items }) {
                                 <li key={article.id + index}>
                                     <Link className={css(style.list__HastagLink)}
                                         to={`/hashtag${hashtag}`}>{hashtag}
-                                            </Link>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

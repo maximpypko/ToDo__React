@@ -37,9 +37,13 @@ const style = StyleSheet.create({
     form__inputContent: {
         resize:'none'
     },
+    form__titleHashtags: {
+        display:'block',
+        paddingBottom: '5px',
+        fontWeight:'bold'
+    },
     form__hashtags: {
         width: '100%',
-        height: '65px',
         paddingLeft:'10px',
         border: 'none',
         background: 'transparent',
@@ -109,24 +113,29 @@ function Form({ handlerSubmit }) {
             </div>
 
             <div className={css(style.form__itemTwo)}>
-                <select className={css(style.form__hashtags)} 
-                    multiple
-                    required
-                    size='3'
-                    onInput={e => {
-                        handlerDropdown(e.target.value)
-                    }}>
-                    <option >sport</option>
-                    <option >hobby</option>
-                    <option >travels</option>
-                    <option >tasks</option>
-                    <option >psychology</option>
-                    <option >work</option>
-                    <option >music</option>
-                    <option >courses</option>
-                    <option >shoping</option>
-
-                </select>
+                <div>
+                    <label className={css(style.form__titleHashtags)}
+                        for='hashtags'>Choose a category</label>
+                    <select className={css(style.form__hashtags)}
+                        id='hashtags'
+                        multiple
+                        required
+                        size='5'
+                        onInput={e => {
+                            handlerDropdown(e.target.value)
+                        }}>
+                        <option >sport</option>
+                        <option >hobby</option>
+                        <option >travels</option>
+                        <option >tasks</option>
+                        <option >psychology</option>
+                        <option >work</option>
+                        <option >music</option>
+                        <option >courses</option>
+                        <option >shoping</option>
+                    </select>
+                </div>
+                
 
                 <button className={classnames(
                     css(style.form__submit),
