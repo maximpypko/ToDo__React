@@ -115,7 +115,7 @@ function Form({ handlerSubmit }) {
             <div className={css(style.form__itemTwo)}>
                 <div>
                     <label className={css(style.form__titleHashtags)}
-                        for='hashtags'>Choose a category</label>
+                        htmlFor='hashtags'>Choose a category</label>
                     <select className={css(style.form__hashtags)}
                         id='hashtags'
                         multiple
