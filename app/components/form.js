@@ -71,9 +71,10 @@ function Form({ handlerSubmit }) {
     const [inputContentValue, setInputContentValue] = useState('');
     const [inputTagValue, setInputTagValue] = useState([]);
 
-    function handlerDropdown(el){
-        setInputTagValue(prev => {
-            return [...prev, '#'+el]
+    function handlerDropdown(el) {
+
+         setInputTagValue(prev => {
+             return prev.includes('#' + el) ? prev : [...prev, '#' + el];
         })
     }
     
@@ -119,10 +120,9 @@ function Form({ handlerSubmit }) {
                     <select className={css(style.form__hashtags)}
                         id='hashtags'
                         multiple
-                        required
                         size='5'
                         onInput={e => {
-                            handlerDropdown(e.target.value)
+                            handlerDropdown(e.target.value);
                         }}>
                         <option >sport</option>
                         <option >hobby</option>
