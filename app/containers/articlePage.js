@@ -12,15 +12,14 @@ const style = StyleSheet.create({
     },
     list__Hastags: {
         width:'100%',
-        display: 'flex',
         listStyle:'none',
-        justifyContent: 'flex-start',
         margin: '0 0 0 10px',
         padding:'20px',
         border:'1px solid #7D7F7B',
         borderRadius:'10px'
     },
     list__HastagItem: {
+        display:'inline-block',
         marginRight: '10px',
         textDecoration: 'none',
         color:'grey'

@@ -15,6 +15,7 @@ const style = StyleSheet.create({
         borderRadius:'10px'
     },
     list__itemTitle: {
+        display:'block',
         paddingLeft:'10px',
         textDecoration: 'none',
         color:'black',
@@ -25,9 +26,10 @@ const style = StyleSheet.create({
         overflowWrap: 'anywhere'
       },
     list__Hastags: {
-        width:'100%',
-        display: 'flex',
-        justifyContent:'flex-end'
+        textAlign: 'end',
+    },
+    list__HastagItem: {
+        display: 'inline-block',
     },
     list__HastagLink: {
         marginRight: '10px',
@@ -45,15 +47,15 @@ function List({ items }) {
                     <li className={css(style.list__item)}
                         key={article.id}>
                         
-                        <Link
-                            className={css(style.list__itemTitle)}
+                        <Link className={css(style.list__itemTitle)}
                             to={`/article${article.id}`}>{article.title}
                         </Link>
 
                         <ul className={css(style.list, style.list__Hastags)}>
                             {article.hashtags.map((hashtag, index) => (
                                     
-                                <li key={article.id + index}>
+                                <li className={css(style.list__HastagItem)}
+                                    key={article.id + index}>
                                     <Link className={css(style.list__HastagLink)}
                                         to={`/hashtag${hashtag}`}>{hashtag}
                                     </Link>
