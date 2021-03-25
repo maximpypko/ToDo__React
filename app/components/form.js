@@ -77,7 +77,6 @@ function Form({ handlerSubmit }) {
              return prev.includes('#' + el) ? prev : [...prev, '#' + el];
         })
     }
-    
     return (
         <form className={css(style.form)}
             onSubmit={e => {e.preventDefault();
@@ -123,6 +122,8 @@ function Form({ handlerSubmit }) {
                         size='5'
                         onInput={e => {
                             handlerDropdown(e.target.value);
+                            const indexSelectedOption = e.target.options.selectedIndex;
+                            e.target.options[indexSelectedOption].style.display = 'none';
                         }}>
                         <option >sport</option>
                         <option >hobby</option>
@@ -135,7 +136,6 @@ function Form({ handlerSubmit }) {
                         <option >shoping</option>
                     </select>
                 </div>
-                
 
                 <button className={classnames(
                     css(style.form__submit),
@@ -147,6 +147,10 @@ function Form({ handlerSubmit }) {
                         || !inputContentValue.trim()
                         || !inputTagValue.length
                     }
+                    onClick={() => {
+                        const options = document.querySelectorAll('option');
+                        options.forEach(el => el.style.display = 'block')
+                    }}
                 >
                     Create article
                 </button>
